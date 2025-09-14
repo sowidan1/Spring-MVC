@@ -1,6 +1,7 @@
 package com.curdmvc.curdmvc;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -8,11 +9,15 @@ public class StaffController {
 
     @GetMapping("/")
     public String home() {
-        return "staffnames";
+        return "staffdetails";
     }
 
-    @GetMapping("/staffnames")
-    public String getStaffNames() {
-        return "staffnames";
+    @GetMapping("/staff-details")
+    public String getStaffDetails(Model model) {
+
+        Staff myStaff = new Staff("John Doe", "Manager", 5);
+
+        model.addAttribute("staff", myStaff);
+        return "staffdetails";
     }
 }

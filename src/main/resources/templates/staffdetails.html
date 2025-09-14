@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Staff Names Page</h1>
-    <p>This is the staff names page.</p>
-</body>
+<html>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <h2>Staff Details</h2>
+
+    <table style="width: 100%">
+      <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Salary</th>
+      </tr>
+      <tr>
+        <td th:text="${staff.staffName}"></td>
+        <td th:text="${staff.staffTitle}"></td>
+        <td th:text="${staff.staffSalary}"></td>
+      </tr>
+    </table>
+  </body>
 </html>

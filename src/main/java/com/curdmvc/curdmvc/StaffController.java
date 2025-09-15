@@ -15,7 +15,7 @@ public class StaffController {
     @GetMapping("/staff-details")
     public String getStaffDetails(Model model) {
 
-        Staff myStaff = new Staff("John Doe", "Manager", 5);
+        Staff myStaff = new Staff("John Doe", "Manager", 50000);
 
         model.addAttribute("staff", myStaff);
         return "staffdetails";

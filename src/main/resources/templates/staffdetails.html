@@ -16,11 +16,20 @@
         <th>Title</th>
         <th>Salary</th>
       </tr>
-      <tr>
-        <td th:text="${staff.staffName}"></td>
-        <td th:text="${staff.staffTitle}"></td>
-        <td th:text="${staff.staffSalary}"></td>
+      <tr th:object="${staff}">
+        <td th:text="*{staffName}"></td>
+        <td th:text="*{staffTitle}"></td>
+        <td>
+          <p th:if="*{staffSalary < 8000}">if</p>
+          <p th:unless="*{staffSalary < 8000}">unless</p>
+          <p th:text="*{staffSalary < 8000 ? 'true' : 'false'}"></p>
+        </td>
       </tr>
     </table>
+
+    <div th:switch="${staff.staffName}">
+      <p th:case="'John Doe'">Hello John Doe</p>
+      <p th:case="*">Who are you?</p>
+    </div>
   </body>
 </html>

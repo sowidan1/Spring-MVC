@@ -1,7 +1,7 @@
 package com.curdmvc.curdmvc;
 
 public class Staff {
-    
+
     private String staffName;
     private String staffTitle;
     private double staffSalary;
@@ -10,6 +10,9 @@ public class Staff {
         this.staffName = staffName;
         this.staffTitle = staffTitle;
         this.staffSalary = staffSalary;
+    }
+
+    public Staff() {
     }
 
     public String getStaffName() {
@@ -35,5 +38,5 @@ public class Staff {
     public void setStaffSalary(double staffSalary) {
         this.staffSalary = staffSalary;
     }
-    
+
 }

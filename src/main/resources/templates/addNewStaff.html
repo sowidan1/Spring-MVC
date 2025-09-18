@@ -1,0 +1,12 @@
+<form method="post" th:object="${addNewStaff}" th:action="@{/dataSubmitForm}">
+  <label>Staff Name</label>
+  <input type="text" placeholder="Staff name" th:field="*{staffName}" />
+  <br />
+  <label>Staff Title</label>
+  <input type="text" placeholder="Staff title" th:field="*{staffTitle}" />
+  <br />
+  <label>Staff Salary</label>
+  <input type="text" placeholder="Staff salary" th:field="*{staffSalary}" />
+  <br />
+    <button type="submit">Submit</button>
+</form>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <style>
+  <!-- <style>
     table,
     th,
     td {
       border: 1px solid black;
     }
-  </style>
+  </style> -->
   <body>
     <h2>Staff Details</h2>
 
-    <table style="width: 100%">
+    <!-- <table style="width: 100%">
       <tr>
         <th>Name</th>
         <th>Title</th>
@@ -25,11 +25,37 @@
           <p th:text="*{staffSalary < 8000 ? 'true' : 'false'}"></p>
         </td>
       </tr>
-    </table>
 
-    <div th:switch="${staff.staffName}">
+      <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Salary</th>
+      </tr>
+      <tr th:each="staff: ${staffList}">
+        <td th:text="${staff.staffName}"></td>
+        <td th:text="${staff.staffTitle}"></td>
+        <td th:text="${staff.staffTitle}"></td>
+      </tr>
+
+    </table> -->
+
+    <!-- <div th:switch="${staff.staffName}">
       <p th:case="'John Doe'">Hello John Doe</p>
       <p th:case="*">Who are you?</p>
+    </div> -->
+
+    <div class="center-screen">
+      <form method="post" th:object="${staff}">
+        <label>Staff Name</label>
+        <input type="text" th:field="*{staffName}"/>
+        <br>
+        <label>Staff Title</label>
+        <input type="text" th:field="*{staffTitle}"/>
+        <br>
+        <label>Staff Salary</label>
+        <input type="text" th:field="*{staffSalary}"/>
+        <br>
+      </form>
     </div>
   </body>
 </html>

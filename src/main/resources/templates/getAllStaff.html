@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <th>Staff Name</th>
+        <th>Staff Title</th>
+        <th>Staff Salary</th>
+    </tr>
+    <tr th:each="staff : ${staffList}">
+        <td th:text="${staff.staffName}">Staff Name</td>
+        <td th:text="${staff.staffTitle}">Staff Title</td>
+        <td th:text="${staff.staffSalary}">Staff Salary</td>
+    </tr>
+</table>

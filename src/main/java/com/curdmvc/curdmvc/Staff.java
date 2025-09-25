@@ -1,10 +1,13 @@
 package com.curdmvc.curdmvc;
 
+import java.util.UUID;
+
 public class Staff {
 
     private String staffName;
     private String staffTitle;
     private double staffSalary;
+    private String id;
 
     public Staff(String staffName, String staffTitle, double staffSalary) {
         this.staffName = staffName;
@@ -12,7 +15,16 @@ public class Staff {
         this.staffSalary = staffSalary;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Staff() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getStaffName() {

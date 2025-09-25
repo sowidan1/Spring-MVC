@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -29,16 +30,37 @@ public class StaffController {
 
 
     @GetMapping("/")
-    public String addNewStaff(Model model) {
-        model.addAttribute("addNewStaff", new Staff());
+    public String addNewStaff(Model model, @RequestParam(required = false) String id) {
+
+        Staff myStaff = new Staff();
+
+        int index = getStaffIndex(id);
+
+        model.addAttribute("addNewStaff", index == -1 ? myStaff : allStaff.get(index));
+
         return "addNewStaff";
+    }
+
+    public int getStaffIndex(String id) {
+        for (int i = 0; i < allStaff.size(); i++) {
+            if (allStaff.get(i).getId().equals(id)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     List<Staff> allStaff = new ArrayList<>();
 
     @PostMapping("dataSubmitForm")
     public String dataSubmitForm(Staff staff) {
-        allStaff.add(staff);
+
+        int index = getStaffIndex(staff.getId());
+        if (index == -1) {
+            allStaff.add(staff);
+        } else {
+            allStaff.set(index, staff);
+        }
 
         return "redirect:/getAllStaff";
     }

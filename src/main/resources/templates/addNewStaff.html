@@ -8,5 +8,7 @@
   <label>Staff Salary</label>
   <input type="text" placeholder="Staff salary" th:field="*{staffSalary}" />
   <br />
-    <button type="submit">Submit</button>
+  <input type="hidden" th:field="*{id}" />
+
+  <button type="submit">Submit</button>
 </form>

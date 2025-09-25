@@ -8,5 +8,6 @@
         <td th:text="${staff.staffName}">Staff Name</td>
         <td th:text="${staff.staffTitle}">Staff Title</td>
         <td th:text="${staff.staffSalary}">Staff Salary</td>
+        <td> <a role="button" th:href="@{/(id = ${staff.id})}">Update</a></td>
     </tr>
 </table>

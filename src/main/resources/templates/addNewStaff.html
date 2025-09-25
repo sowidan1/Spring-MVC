@@ -1,11 +1,18 @@
+<p>
+  <a th:href="@{/}">Add New Staff</a>
+    <a th:href="@{/getAllStaff}">Get All Staff</a>
+</p>
 <form method="post" th:object="${addNewStaff}" th:action="@{/dataSubmitForm}">
   <label>Staff Name</label>
+  <p style="color: red;" th:errors="*{staffName}"></p>
   <input type="text" placeholder="Staff name" th:field="*{staffName}" />
   <br />
   <label>Staff Title</label>
+   <p style="color: red;" th:errors="*{staffTitle}"></p>
   <input type="text" placeholder="Staff title" th:field="*{staffTitle}" />
   <br />
   <label>Staff Salary</label>
+   <p style="color: red;" th:errors="*{staffSalary}"></p>
   <input type="text" placeholder="Staff salary" th:field="*{staffSalary}" />
   <br />
   <input type="hidden" th:field="*{id}" />

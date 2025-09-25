@@ -2,10 +2,18 @@ package com.curdmvc.curdmvc;
 
 import java.util.UUID;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.DecimalMin;
+
 public class Staff {
 
+    @NotBlank(message = "Staff name is mandatory")
     private String staffName;
+    @NotBlank(message = "Staff title is mandatory")
     private String staffTitle;
+    @NotNull(message = "Staff salary is mandatory")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Staff salary must be greater than 0")
     private double staffSalary;
     private String id;
 
